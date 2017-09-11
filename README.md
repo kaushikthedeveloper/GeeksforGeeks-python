@@ -3,22 +3,22 @@ Following project contains [Python3](https://docs.python.org/3/) implementation 
 
 ### Format of the Programs :
 ```
-1. \#\ <link reffering to the respective GeeksforGeeks page\>
-2. \<Data Structures used, if any\>
-3. \<Function handling the computation\> <br />
-  \: return the desired result (whenever possible)
+1. # <link reffering to the respective GeeksforGeeks page>
+2. <Data Structures used, if any>
+3. <Function handling the computation> 
+   : return the desired result (whenever possible)
 4. <Helper functions, if any>
-5. \# main
-6. if \_\_name\_\_=="\_\_\main\_\_" \:
-7. \<inside main\> <br />
-  \: get input from the user <br />
-  \: pre-processing of data, if required <br />
-  \: call the function <br />
-  \: print the result
-8. Documentation for the code <br />
-  \: Input Explanation <br />
-  \: Input \<Example\><br />
-  \: Output \<Example\><br />
+5. # main
+6. if __name__=="__main__" :
+7. <inside main> 
+   : get input from the user 
+   : pre-processing of data, if required 
+   : call the function 
+   : print the result
+8. Documentation for the code 
+   : Input Explanation 
+   : Input <Example>
+   : Output <Example>
 9. Documentation for the GeeksforGeeks page content
 ```
 
