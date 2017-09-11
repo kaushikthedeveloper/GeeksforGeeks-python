@@ -1,5 +1,5 @@
 # GeeksforGeeks Python
-Following project contains [Python3](https://docs.python.org/3/) implementation of the Algorithms and Questions found in GeeksfoGeeks.
+Following project contains [Python3](https://docs.python.org/3/) implementation of the Algorithms and Questions found in GeeksforGeeks.
 
 ### Format of the Programs :
 ```
