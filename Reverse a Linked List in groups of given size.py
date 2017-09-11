@@ -27,34 +27,48 @@ def reverse(head, k):
             node.data=data
             node=node.next
 
+    return head
+
+
+#main
+if __name__=="__main__":
+    '''IMP Note : Work with LinkedList data structure'''
+
+    data=list(map(int,input().split()))
+    k=int(input())
+    head=Node(data[0])
+    orig_node=head
+
+    #Build your LinkedList
+    #0 - n-1 (Create next Node for upto Last ele)
+    for i in range(0,len(data)-1):
+        orig_node.next=Node(data[i+1])
+        orig_node=orig_node.next
+
+    print("New Nodes : ")
+    head = reverse(head,k)
+
+    #Print the data of the Linked List
     temp_head=head
     while temp_head is not None:
         print(temp_head.data,end=' ')
         temp_head=temp_head.next
 
+"""
+Input Explanation :
+ - List of numbers
+ - 'k' nodes which are to be reversed
 
-#main
-k=int(input())
-data=list(map(int,input().split()))
-head=Node(data[0])
-orig_node=head
+Input :
+1 2 3 4 5 6
+3
 
-#0 - n-1 (Create next Node for upto Last ele)
-for i in range(0,len(data)-1):
-    orig_node.next=Node(data[i+1])
-    orig_node=orig_node.next
-
-print("Original Nodes : ")
-temp_head=head
-while temp_head is not None:
-    print(temp_head.data,end=' ')
-    temp_head=temp_head.next
-
-print("\n\nNew Nodes : ")
-
-reverse(head,k)
+Output :
+3 2 1 6 5 4
 
 """
+
+'''
 Given a linked list, write a function to reverse every k nodes (where k is an input to the function).If a linked list is given as 1->2->3->4->5->6->7->8->NULL and k = 3 then output will be 3->2->1->6->5->4->8->7->NULL.
 
 Input:
@@ -75,4 +89,4 @@ Input:
 
 Output:
 4 2 2 1 8 7 6 5
-"""
+'''

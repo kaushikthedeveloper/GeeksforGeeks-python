@@ -6,16 +6,17 @@ class Node:
         self.left=None
         self.right=None
 
-def inorder_traverse(head):
+def inorder_traverse(head,result):
     if head is not None:
-        inorder_traverse(head.left)
-        print(head.data)
-        inorder_traverse(head.right)
+        inorder_traverse(head.left,result)
+        result.append(head.data)
+        inorder_traverse(head.right,result)
 
 
 #main
-"""
- Constructing below tree
+if __name__=="__main__":
+    """
+    Constructing below tree
                5
              /   \
             3     6
@@ -23,22 +24,34 @@ def inorder_traverse(head):
           1   4     8
          / \       / \
         0   2     7   9  
+    """
+    #Create the above Tree
+    head=Node(5)
+
+    head.left=Node(3)
+    head.left.left=Node(1)
+    head.left.right=Node(4)
+    head.left.left.left=Node(0)
+    head.left.left.right=Node(2)
+
+    head.right=Node(6)
+    head.right.right=Node(8)
+    head.right.right.left=Node(7)
+    head.right.right.right=Node(9)
+
+    #result will store the output
+    result=[]
+    inorder_traverse(head,result)
+
+    print("Extracted Double Linked list is :")
+    print(result)
+
 """
-#Create the above Tree
-head=Node(5)
+Output :
+Extracted Double Linked list is :
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-head.left=Node(3)
-head.left.left=Node(1)
-head.left.right=Node(4)
-head.left.left.left=Node(0)
-head.left.left.right=Node(2)
-
-head.right=Node(6)
-head.right.right=Node(8)
-head.right.right.left=Node(7)
-head.right.right.right=Node(9)
-
-inorder_traverse(head)
+"""
 
 '''
 Given a Binary Tree (BT), convert it to a Doubly Linked List(DLL) In-Place. The left and right pointers in nodes are to be used as previous and next pointers respectively in converted DLL. The order of nodes in DLL must be same as Inorder of the given Binary Tree. The first node of Inorder traversal (left most node in BT) must be head node of the DLL.
