@@ -12,7 +12,7 @@ def calculate_distance(s1,s2):
 
     for i in range(row):
         for j in range(col):
-            #either i or j is 0
+            #either i or j is 0 (for converting to Null)
             if i==0:
                 dp_array[i][j] = j
                 continue
@@ -24,10 +24,12 @@ def calculate_distance(s1,s2):
             if s1[i-1]!=s2[j-1]:
                 #Get min from updown L shape ([i-1][j], [i-1][j-1], [i][j-1]) and add 1 (performing operation)
                 dp_array[i][j] = min(dp_array[i-1][j],dp_array[i][j-1],dp_array[i-1][j-1]) +1
+
             #Same chars, so no need for operation, hence take previous row:col values
             else:
                 dp_array[i][j]=dp_array[i-1][j-1]
 
+    #return right-bottom-most value
     return dp_array[row-1][col-1]
 
 #main
