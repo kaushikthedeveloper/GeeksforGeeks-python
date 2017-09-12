@@ -1,13 +1,14 @@
 #http://www.geeksforgeeks.org/given-an-array-of-numbers-arrange-the-numbers-to-form-the-biggest-number/
 
 def calc_largest_num(numbers):
-    #sort the numbers in descending order (not considering their length) (with custom compare function applied)
+    #sort the numbers in descending order (not considering their length)
+    #custom compare function applied to the sorting proces
     sorted_nums = sorted(numbers,key=cmp_to_key(mycmp),reverse=True)
     return ''.join(sorted_nums)
 
 
 #Sorting magic happens here
-#compare adjacent numbers combined, and then swapped. Whichever is higher, is retained
+#compare adjacent numbers combined and then swapped. Whichever is higher, is retained
 def mycmp(x,y):
     if int(x+y)>int(y+x):
         return 1
