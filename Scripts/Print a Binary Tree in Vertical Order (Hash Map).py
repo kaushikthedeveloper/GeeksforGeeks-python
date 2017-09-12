@@ -1,20 +1,21 @@
 # http://www.geeksforgeeks.org/print-binary-tree-vertical-order/
+#Hash Map based
 
 from collections import defaultdict
 
-
-# Tree
+#Basic Tree structure
 class Node:
     def __init__(self, data):
         self.data = data
         self.left = None
         self.right = None
 
-
+#Derived Class
+#Distance from class -> Left child(--) and Right child(++)
 class ModifiedNode(Node):
     def __init__(self, data):
         Node.__init__(self, data)
-        # store Node's Distance from root
+        # store Node's Vertical Distance from root
         self.dist_from_root = None
 
 
