@@ -22,4 +22,6 @@ Following project contains [Python3](https://docs.python.org/3/) implementation 
 9. Documentation for the GeeksforGeeks page content
 ```
 
-Note : this is not affiliated with GeeksforGeeks in any way other than for reference.
+**Note** : this is not affiliated with GeeksforGeeks in any way other than for reference purpose.
+
+**Also Note** : the code implemetation (and sometimes even algorithm) might be different than the one in GeeksforGeeks. The decision is upon the author and author alone. New Algorithms for the same problem statement may be added in the future.

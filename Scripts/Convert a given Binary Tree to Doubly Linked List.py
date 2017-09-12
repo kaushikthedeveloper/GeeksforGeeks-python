@@ -43,13 +43,17 @@ if __name__=="__main__":
     result=[]
     inorder_traverse(head,result)
 
-    print("Extracted Double Linked list is :")
-    print(result)
+    print("Extracted Double Linked list is")
+    print(' '.join(str(res) for res in result))
 
 """
+Input Explanation :
+Tree is hard-coded as
+
+
 Output :
-Extracted Double Linked list is :
-[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Extracted Double Linked list is
+0 1 2 3 4 5 6 7 8 9
 
 """
 

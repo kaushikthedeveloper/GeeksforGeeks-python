@@ -35,9 +35,9 @@ def calculate_distance(s1,s2):
 #main
 if __name__=="__main__":
     s1,s2 = input().split()
-    dist = calculate_distance(s1,s2)
+    dist_data = calculate_distance(s1, s2)
     print("Number of operations required :")
-    print(dist)
+    print(dist_data)
 
 """
 Input Explanation :
