@@ -28,27 +28,35 @@ def find_subset(weight, req_sum):
                 else:
                     dp_array[i][j]=dp_array[i-1][j]
 
-    print("Subset for sum",req_sum,' :')
-
     #Find out which Numbers should be in the subset
     #give from index 0
     row-=1
     col-=1
+    sum_subset=[]
+
+    #check if the Subset is possible : if not, return None
+    if dp_array[row][col] != req_sum :
+        return None
+
+    #get the subset
     while col>=0 and row>=0 and req_sum>0:
         #First Row
         if(row==0):
-            print(weight[row])
+            sum_subset.append(weight[row])
             break
 
         #Bottom-Right most ele
         if(dp_array[row][col]!=dp_array[row-1][col]):
             # print(req_sum,' : ',dp_array[row][col],dp_array[row-1][col],' : ',weight[row])
-            print(weight[row])
+            sum_subset.append(weight[row])
             req_sum-=weight[row]
             col-=weight[row]
             row-=1
         else:
             row-=1
+
+    return sum_subset
+
 
 #main
 if __name__=="__main__":
@@ -57,7 +65,14 @@ if __name__=="__main__":
 
     #Sort by ascending order
     array.sort()
-    find_subset(array,req_sum)
+    sum_subset = find_subset(array,req_sum)
+
+    #If Sum is not possible
+    if sum_subset is None :
+        print("Sum :",req_sum,"is not possible")
+    else:
+        print("Subset for sum",req_sum,' :')
+        print(' '.join(str(x) for x in sum_subset))
 
 """
 Input Explanation :
@@ -70,8 +85,7 @@ Input :
 
 Output :
 Subset for sum 13  :
-8
-5
+8 5
 
 """
 
