@@ -1,4 +1,5 @@
 # http://www.geeksforgeeks.org/find-subarray-with-given-sum/
+#print the first sub-array that satisfies the condition
 
 from collections import defaultdict
 
@@ -17,8 +18,8 @@ def find_continuous_subset(array, req_sum):
         #if the difference between sum_from_0 and req_sum exists in the mapping, that means we need to
         #remove items from start
         if map_sum.get(sum_from_0 - req_sum) is not None:
-            #get the index from which to start sub-array
-            left = map_sum.get(sum_from_0 - req_sum)
+            #get the index from which to start sub-array (+1)
+            left = map_sum.get(sum_from_0 - req_sum) + 1
             right = i + 1
             return array[left:right]
 

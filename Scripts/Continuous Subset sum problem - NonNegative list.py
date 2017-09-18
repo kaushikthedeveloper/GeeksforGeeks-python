@@ -1,4 +1,5 @@
 #http://www.geeksforgeeks.org/find-subarray-with-given-sum/
+#print the first subset that satisfies the condition
 
 def find_continuous_subset(array,req_sum):
     left=0
