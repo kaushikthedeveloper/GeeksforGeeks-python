@@ -1,6 +1,6 @@
 #http://www.geeksforgeeks.org/length-of-the-longest-valid-substring/
 
-def longest_valid_parentheses(string):
+def longest_valid_parentheses(string: str):
     #hold the substring start
     stack = [-1]
     longest_parenth_count=0

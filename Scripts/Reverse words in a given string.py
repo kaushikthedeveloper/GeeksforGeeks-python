@@ -1,6 +1,6 @@
 #http://www.geeksforgeeks.org/reverse-words-in-a-given-string/
 
-def reverse_words(string):
+def reverse_words(string: str):
     #store words in list spilt according to space
     list_string = string.split()
     #reverse the list

@@ -6,7 +6,7 @@ class Node:
         self.left=None
         self.right=None
 
-def inorder_traverse(head,result):
+def inorder_traverse(head: Node,result: list):
     if head is not None:
         inorder_traverse(head.left,result)
         result.append(head.data)

@@ -1,6 +1,6 @@
 #http://www.geeksforgeeks.org/power-set/
 
-def power_set(array,n):
+def power_set(array: list, n: int):
     #Len of PowerSet = 2^n
     max_len=pow(2,n)
 

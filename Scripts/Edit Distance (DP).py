@@ -1,6 +1,6 @@
 #http://www.geeksforgeeks.org/dynamic-programming-set-5-edit-distance/
 
-def calculate_distance(s1,s2):
+def calculate_distance(s1: str, s2: str):
     n1=len(s1)
     n2=len(s2)
 

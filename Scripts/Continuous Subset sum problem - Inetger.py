@@ -3,7 +3,7 @@
 
 from collections import defaultdict
 
-def find_continuous_subset(array, req_sum):
+def find_continuous_subset(array: list , req_sum: int):
     sum_from_0 = 0
     #used to map the sum from 0 to its index
     map_sum = defaultdict(int)

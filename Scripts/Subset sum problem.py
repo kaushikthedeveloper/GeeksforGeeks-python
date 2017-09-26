@@ -1,6 +1,6 @@
 #http://www.geeksforgeeks.org/dynamic-programming-subset-sum-problem/
 
-def find_subset(weight, req_sum):
+def find_subset(weight: list, req_sum: int):
     l=len(weight)
 
     #ROWS : array

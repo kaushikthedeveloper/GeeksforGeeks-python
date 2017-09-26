@@ -1,6 +1,6 @@
 #http://www.geeksforgeeks.org/given-an-array-of-numbers-arrange-the-numbers-to-form-the-biggest-number/
 
-def calc_largest_num(numbers):
+def calc_largest_num(numbers: list):
     #sort the numbers in descending order (not considering their length)
     #custom compare function applied to the sorting proces
     sorted_nums = sorted(numbers,key=cmp_to_key(mycmp),reverse=True)

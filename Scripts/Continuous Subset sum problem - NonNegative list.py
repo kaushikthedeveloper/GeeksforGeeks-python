@@ -1,7 +1,7 @@
 #http://www.geeksforgeeks.org/find-subarray-with-given-sum/
 #print the first subset that satisfies the condition
 
-def find_continuous_subset(array,req_sum):
+def find_continuous_subset(array: list,req_sum: int):
     left=0
     right=0
 

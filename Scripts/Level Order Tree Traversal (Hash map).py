@@ -5,7 +5,7 @@ from collections import defaultdict
 
 #Basic Tree structure
 class Node:
-    def __init__(self, data):
+    def __init__(self, data: int):
         self.data = data
         self.left = None
         self.right = None
@@ -13,7 +13,7 @@ class Node:
 #Derived Class
 #Distance from class -> child(++)
 class ModifiedNode(Node):
-    def __init__(self, data):
+    def __init__(self, data: int):
         Node.__init__(self, data)
         # store Node's Distance from root
         self.dist_from_root = None
@@ -22,7 +22,7 @@ class ModifiedNode(Node):
 # Used to store the [Node data] against its {dist_from_root value}
 dist_data = defaultdict(list)
 
-def vertical_traverse(head):
+def vertical_traverse(head: Node):
     # Sort the Dictionary based on its key (distance_from_root)
     # print the data
     vertical_nodes = []
@@ -37,7 +37,7 @@ def vertical_traverse(head):
     return vertical_nodes
 
 
-def assign_dist(head, distance):
+def assign_dist(head: Node, distance: int):
     global dist_data
     if head is None:
         return

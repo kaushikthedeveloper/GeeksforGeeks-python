@@ -5,7 +5,7 @@ from collections import defaultdict
 
 #Basic Tree structure
 class Node:
-    def __init__(self, data):
+    def __init__(self, data: int):
         self.data = data
         self.left = None
         self.right = None
@@ -13,7 +13,7 @@ class Node:
 #Derived Class
 #Distance from class -> Left child(--) and Right child(++)
 class ModifiedNode(Node):
-    def __init__(self, data):
+    def __init__(self, data: int):
         Node.__init__(self, data)
         # store Node's Vertical Distance from root
         self.dist_from_root = None
@@ -23,7 +23,7 @@ class ModifiedNode(Node):
 dist_data = defaultdict(list)
 
 
-def vertical_traverse(head):
+def vertical_traverse(head: Node):
     # Sort the Dictionary based on its key (distance_from_root)
     # print the data
     vertical_nodes = []
@@ -38,7 +38,7 @@ def vertical_traverse(head):
     return vertical_nodes
 
 
-def assign_dist(head, distance):
+def assign_dist(head: Node, distance: int):
     global dist_data
     if head is None:
         return
@@ -87,7 +87,7 @@ if __name__ == "__main__":
 
 """
 Input Explanation :
-Tree is hard-coded as
+ - Tree is hard-coded as
             1
           /    \
          2      3

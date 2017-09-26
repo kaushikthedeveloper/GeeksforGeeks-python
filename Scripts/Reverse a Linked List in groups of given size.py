@@ -1,11 +1,11 @@
 #http://practice.geeksforgeeks.org/problems/reverse-a-linked-list-in-groups-of-given-size/1
 
 class Node:
-    def __init__(self,data):
+    def __init__(self,data: int):
         self.data = data
         self.next = None
 
-def reverse(head, k):
+def reverse(head: Node, k: int):
     # Code here
     node=head
 
