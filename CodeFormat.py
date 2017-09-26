@@ -1,5 +1,7 @@
 #<link>
 
+from <module> import <module>
+
 class <data_struct>:
     ...
 
