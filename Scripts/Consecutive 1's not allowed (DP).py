@@ -1,4 +1,4 @@
-#http://practice.geeksforgeeks.org/problems/consecutive-1s-not-allowed/0
+#http://www.geeksforgeeks.org/count-number-binary-strings-without-consecutive-1s/
 #easier method follows Fibonacci Series
 
 def non_consecutive_1(n: int):
