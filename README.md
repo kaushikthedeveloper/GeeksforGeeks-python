@@ -4,6 +4,8 @@ Following project contains [Python3](https://docs.python.org/3/) implementation 
 > “Talk is cheap. Show me the code.” 
 > ― Linus Torvalds
 
+<br />
+
 ### Format of the Programs :
 ```
 1. # <link reffering to the respective GeeksforGeeks page>
@@ -31,6 +33,8 @@ For better code understanding, please follow the [Style guide for python](https:
 > “Good code is its own best documentation. As you’re about to add a comment, ask yourself, ‘How can I improve the code so that this comment isn’t needed?'”
 > – Steve McConnell 
 
+<br />
+
 **Imp :** In the code, provide [Function Annotations](https://www.python.org/dev/peps/pep-3107/) as per [PEP 3107 -- Function Annotations](https://www.python.org/dev/peps/pep-3107/) **for every parameter passed in a function**. Return type specification is optional.
 
 Annotations for *parameters* take the form of optional expressions that follow the parameter name:
@@ -57,6 +61,8 @@ def sum() -> int:
     ...
     
 ```
+
+<hr />
 
 ##### **Note** : this is not affiliated with GeeksforGeeks in any way other than for reference purpose.
 
