@@ -1,34 +1,32 @@
-#http://www.geeksforgeeks.org/given-two-unsorted-arrays-find-pairs-whose-sum-x/
-#Hashing
+# http://www.geeksforgeeks.org/given-two-unsorted-arrays-find-pairs-whose-sum-x/
+# Hashing
 
 def sum_pairs(array1: list, array2: list, req_sum: int):
     sum_lists = []
 
-    #hash array1 for later searching
-    hash1 = { x:x for x in array1 }
+    # hash array1 for later searching
+    hash1 = {x: x for x in array1}
 
     for y in array2:
         try:
-            #if hash1[req_sum-y] exists
+            # if hash1[req_sum-y] exists
             x = hash1[req_sum - y]
-            sum_lists.append([x,y])
-        except:
-            #the other number for pairing with y not found
+            sum_lists.append([x, y])
+        except KeyError:
+            # the other number for pairing with y not found
             continue
 
     return sum_lists
 
-#main
-if __name__=="__main__":
-    array1 = list(map(int,input().split()))
-    array2 = list(map(int,input().split()))
-    req_sum=int(input())
+# main
+if __name__ == "__main__":
+    array1 = list(map(int, input().split()))
+    array2 = list(map(int, input().split()))
+    req_sum = int(input())
 
-    pairs = sum_pairs(array1,array2,req_sum)
-    print("Sum pairs for", req_sum,"are")
+    pairs = sum_pairs(array1, array2, req_sum)
+    print("Sum pairs for", req_sum, "are")
     print([pair for pair in pairs])
-
-
 
 """
 Input Explanation :
@@ -67,7 +65,8 @@ Output : 1 8
 Asked in : Amazon
 
 Recommended: Please solve it on “PRACTICE ” first, before moving on to the solution.
-A Naive approach is to simply run two loops and pick elements from both arrays. One by one check that both elements sum is equal to given value x or not.
+A Naive approach is to simply run two loops and pick elements from both arrays. One by one check that both elements sum 
+is equal to given value x or not.
 
 // C++ program to find all pairs in both arrays
 // whose sum is equal to given value x
@@ -107,7 +106,9 @@ Output:
 Time Complexity : O(n^2)
 Auxiliary Space : O(1)
 
-An Efficient solution of this problem is to hashing. Hash table is implemented using unordered_set in C++. We store all first array elements in hash table. For elements of second array, we subtract every element from x and check the result in hash table. If result is present, we print the element and key in hash (which is an element of first array).
+An Efficient solution of this problem is to hashing. Hash table is implemented using unordered_set in C++. We store all 
+first array elements in hash table. For elements of second array, we subtract every element from x and check the result 
+in hash table. If result is present, we print the element and key in hash (which is an element of first array).
 C++Java
 // C++ program to find all pair in both arrays
 // whose sum is equal to given value x

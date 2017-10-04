@@ -1,14 +1,14 @@
-#http://www.geeksforgeeks.org/reverse-words-in-a-given-string/
+# http://www.geeksforgeeks.org/reverse-words-in-a-given-string/
 
 def reverse_words(string: str):
-    #store words in list spilt according to space
+    # store words in list spilt according to space
     list_string = string.split()
-    #reverse the list
+    # reverse the list
     list_string = list_string[::-1]
     return ' '.join(list_string)
 
-#main
-if __name__=="__main__":
+# main
+if __name__ == "__main__":
     string = input()
     reversed_words = reverse_words(string)
 
@@ -102,7 +102,9 @@ Run on IDE
 Output:
 
 much very program this like i
-The above code doesn’t handle the cases when the string starts with space. The following version handles this specific case and doesn’t make unnecessary calls to reverse function in the case of multiple space in between. Thanks to rka143 for providing this version.
+The above code doesn’t handle the cases when the string starts with space. The following version handles this specific 
+case and doesn’t make unnecessary calls to reverse function in the case of multiple space in between. Thanks to rka143 
+for providing this version.
 
 void reverseWords(char *s)
 {

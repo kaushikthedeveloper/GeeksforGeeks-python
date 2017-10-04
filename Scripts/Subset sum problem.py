@@ -1,77 +1,76 @@
-#http://www.geeksforgeeks.org/dynamic-programming-subset-sum-problem/
+# http://www.geeksforgeeks.org/dynamic-programming-subset-sum-problem/
 
 def find_subset(weight: list, req_sum: int):
-    l=len(weight)
+    l = len(weight)
 
-    #ROWS : array
-    #COL : range(sum)
-    row=l
-    col=req_sum+1
+    # ROWS : array
+    # COL : range(sum)
+    row = l
+    col = req_sum + 1
 
-    #2d array storing Sum
-    dp_array=[[0]*col for i in range(row)]
+    # 2d array storing Sum
+    dp_array = [[0] * col for i in range(row)]
 
     for i in range(row):
-        for j in range(1,col):
-            #Row 0
-            if i==0:
-                if j>=weight[i]:
-                    dp_array[i][j]=weight[i]
+        for j in range(1, col):
+            # Row 0
+            if i == 0:
+                if j >= weight[i]:
+                    dp_array[i][j] = weight[i]
                 else:
                     continue
             else:
-                if j-weight[i]>=0:
-                    dp_array[i][j]=max(dp_array[i-1][j], (weight[i]+dp_array[i-1][j-weight[i]]) )
-                elif j>=weight[i]:
-                    #take from row above it
-                    dp_array[i][j]=max(dp_array[i-1][j],weight[i])
+                if j - weight[i] >= 0:
+                    dp_array[i][j] = max(dp_array[i - 1][j], (weight[i] + dp_array[i - 1][j - weight[i]]))
+                elif j >= weight[i]:
+                    # take from row above it
+                    dp_array[i][j] = max(dp_array[i - 1][j], weight[i])
                 else:
-                    dp_array[i][j]=dp_array[i-1][j]
+                    dp_array[i][j] = dp_array[i - 1][j]
 
-    #Find out which Numbers should be in the subset
-    #give from index 0
-    row-=1
-    col-=1
-    sum_subset=[]
+    # Find out which Numbers should be in the subset
+    # give from index 0
+    row -= 1
+    col -= 1
+    sum_subset = []
 
-    #check if the Subset is possible : if not, return None
-    if dp_array[row][col] != req_sum :
+    # check if the Subset is possible : if not, return None
+    if dp_array[row][col] != req_sum:
         return None
 
-    #get the subset
-    while col>=0 and row>=0 and req_sum>0:
-        #First Row
-        if(row==0):
+    # get the subset
+    while col >= 0 and row >= 0 and req_sum > 0:
+        # First Row
+        if (row == 0):
             sum_subset.append(weight[row])
             break
 
-        #Bottom-Right most ele
-        if(dp_array[row][col]!=dp_array[row-1][col]):
+        # Bottom-Right most ele
+        if (dp_array[row][col] != dp_array[row - 1][col]):
             # print(req_sum,' : ',dp_array[row][col],dp_array[row-1][col],' : ',weight[row])
             sum_subset.append(weight[row])
-            req_sum-=weight[row]
-            col-=weight[row]
-            row-=1
+            req_sum -= weight[row]
+            col -= weight[row]
+            row -= 1
         else:
-            row-=1
+            row -= 1
 
     return sum_subset
 
+# main
+if __name__ == "__main__":
+    array = list(map(int, input().split()))
+    req_sum = int(input())
 
-#main
-if __name__=="__main__":
-    array=list(map(int,input().split()))
-    req_sum=int(input())
-
-    #Sort by ascending order
+    # Sort by ascending order
     array.sort()
-    sum_subset = find_subset(array,req_sum)
+    sum_subset = find_subset(array, req_sum)
 
-    #If Sum is not possible
-    if sum_subset is None :
-        print("Sum :",req_sum,"is not possible")
+    # If Sum is not possible
+    if sum_subset is None:
+        print("Sum :", req_sum, "is not possible")
     else:
-        print("Subset for sum",req_sum,' :')
+        print("Subset for sum", req_sum, ' :')
         print(' '.join(str(x) for x in sum_subset))
 
 """
@@ -90,12 +89,14 @@ Subset for sum 13  :
 """
 
 '''
-Given a set of non-negative integers, and a value sum, determine if there is a subset of the given set with sum equal to given sum.
+Given a set of non-negative integers, and a value sum, determine if there is a subset of the given set with sum equal 
+to given sum.
 
 Examples: set[] = {3, 34, 4, 12, 5, 2}, sum = 9
 Output:  True  //There is a subset (4, 5) with sum 9.
 Recommended: Please solve it on “PRACTICE ” first, before moving on to the solution.
-Let isSubSetSum(int set[], int n, int sum) be the function to find whether there is a subset of set[] with sum equal to sum. n is the number of elements in set[].
+Let isSubSetSum(int set[], int n, int sum) be the function to find whether there is a subset of set[] with sum equal to 
+sum. n is the number of elements in set[].
 
 The isSubsetSum problem can be divided into two subproblems
 …a) Include the last element, recur for n = n-1, sum = sum – set[n-1]
@@ -150,9 +151,12 @@ Run on IDE
 
 Output:
  Found a subset with given sum 
-The above solution may try all subsets of given set in worst case. Therefore time complexity of the above solution is exponential. The problem is in-fact NP-Complete (There is no known polynomial time solution for this problem).
+The above solution may try all subsets of given set in worst case. Therefore time complexity of the above solution is 
+exponential. The problem is in-fact NP-Complete (There is no known polynomial time solution for this problem).
 
-We can solve the problem in Pseudo-polynomial time using Dynamic programming. We create a boolean 2D table subset[][] and fill it in bottom up manner. The value of subset[i][j] will be true if there is a subset of set[0..j-1] with sum equal to i., otherwise false. Finally, we return subset[sum][n]
+We can solve the problem in Pseudo-polynomial time using Dynamic programming. We create a boolean 2D table subset[][] 
+and fill it in bottom up manner. The value of subset[i][j] will be true if there is a subset of set[0..j-1] with sum 
+equal to i., otherwise false. Finally, we return subset[sum][n]
 CJava
 // A Dynamic Programming solution for subset sum problem
 #include <stdio.h>

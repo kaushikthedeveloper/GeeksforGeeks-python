@@ -1,28 +1,29 @@
-#http://www.geeksforgeeks.org/power-set/
+# http://www.geeksforgeeks.org/power-set/
 
 def power_set(array: list, n: int):
-    #Len of PowerSet = 2^n
-    max_len=pow(2,n)
+    # Len of PowerSet = 2^n
+    max_len = pow(2, n)
 
-    powerSet=[]
+    powerSet = []
     for num in range(max_len):
-        l=[]
+        l = []
         # 0 to n
         for i in range(n):
-            if(num & (1<<i)):
+            if (num & (1 << i)):
                 l.append(array[i])
         powerSet.append(l)
 
     return powerSet
 
-#main
-if __name__=="__main__":
-    array=input().split()
-    n=len(array)
-    powerSet=power_set(array,n)
 
-    #Sort by length
-    powerSet=sorted(powerSet,key=len)
+# main
+if __name__ == "__main__":
+    array = input().split()
+    n = len(array)
+    powerSet = power_set(array, n)
+
+    # Sort by length
+    powerSet = sorted(powerSet, key=len)
     print("Power Set :")
     print(powerSet)
 
@@ -40,7 +41,8 @@ Power Set :
 """
 
 '''
-Power Set Power set P(S) of a set S is the set of all subsets of S. For example S = {a, b, c} then P(s) = {{}, {a}, {b}, {c}, {a,b}, {a, c}, {b, c}, {a, b, c}}.
+Power Set Power set P(S) of a set S is the set of all subsets of S. For example S = {a, b, c} then 
+P(s) = {{}, {a}, {b}, {c}, {a,b}, {a, c}, {b, c}, {a, b, c}}.
 
 If S has n elements in it then P(s) will have 2^n elements
 

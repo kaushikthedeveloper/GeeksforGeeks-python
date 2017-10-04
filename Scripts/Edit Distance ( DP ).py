@@ -1,40 +1,40 @@
-#http://www.geeksforgeeks.org/dynamic-programming-set-5-edit-distance/
+# http://www.geeksforgeeks.org/dynamic-programming-set-5-edit-distance/
 
 def calculate_distance(s1: str, s2: str):
-    n1=len(s1)
-    n2=len(s2)
+    n1 = len(s1)
+    n2 = len(s2)
 
-    #DP row and col
-    row=n1+1        #DP table requires +1 (for Null string)
-    col=n2+1        #DP table requires +1 (for Null string)
-    #DP Array
-    dp_array = [[0]*col for i in range(row)]
+    # DP row and col
+    row = n1 + 1  # DP table requires +1 (for Null string)
+    col = n2 + 1  # DP table requires +1 (for Null string)
+    # DP Array
+    dp_array = [[0] * col for i in range(row)]
 
     for i in range(row):
         for j in range(col):
-            #either i or j is 0 (for converting to Null)
-            if i==0:
+            # either i or j is 0 (for converting to Null)
+            if i == 0:
                 dp_array[i][j] = j
                 continue
-            if j==0:
+            if j == 0:
                 dp_array[i][j] = i
                 continue
 
-            #The chars don't match, so perform operation
-            if s1[i-1]!=s2[j-1]:
-                #Get min from updown L shape ([i-1][j], [i-1][j-1], [i][j-1]) and add 1 (performing operation)
-                dp_array[i][j] = min(dp_array[i-1][j],dp_array[i][j-1],dp_array[i-1][j-1]) +1
+            # The chars don't match, so perform operation
+            if s1[i - 1] != s2[j - 1]:
+                # Get min from updown L shape ([i-1][j], [i-1][j-1], [i][j-1]) and add 1 (performing operation)
+                dp_array[i][j] = min(dp_array[i - 1][j], dp_array[i][j - 1], dp_array[i - 1][j - 1]) + 1
 
-            #Same chars, so no need for operation, hence take previous row:col values
+            # Same chars, so no need for operation, hence take previous row:col values
             else:
-                dp_array[i][j]=dp_array[i-1][j-1]
+                dp_array[i][j] = dp_array[i - 1][j - 1]
 
-    #return right-bottom-most value
-    return dp_array[row-1][col-1]
+    # return right-bottom-most value
+    return dp_array[row - 1][col - 1]
 
-#main
-if __name__=="__main__":
-    s1,s2 = input().split()
+# main
+if __name__ == "__main__":
+    s1, s2 = input().split()
     dist_data = calculate_distance(s1, s2)
     print("Number of operations required :")
     print(dist_data)
@@ -53,7 +53,8 @@ Number of operations required :
 """
 
 '''
-Given two strings str1 and str2 and below operations that can performed on str1. Find minimum number of edits (operations) required to convert ‘str1’ into ‘str2’.
+Given two strings str1 and str2 and below operations that can performed on str1. Find minimum number of edits 
+(operations) required to convert ‘str1’ into ‘str2’.
 
 Insert
 Remove
@@ -83,13 +84,18 @@ Let we traverse from right corner, there are two possibilities for every pair of
 
 m: Length of str1 (first string)
 n: Length of str2 (second string)
-If last characters of two strings are same, nothing much to do. Ignore last characters and get count for remaining strings. So we recur for lengths m-1 and n-1.
-Else (If last characters are not same), we consider all operations on ‘str1’, consider all three operations on last character of first string, recursively compute minimum cost for all three operations and take minimum of three values.
+If last characters of two strings are same, nothing much to do. Ignore last characters and get count for remaining 
+strings. So we recur for lengths m-1 and n-1.
+Else (If last characters are not same), we consider all operations on ‘str1’, consider all three operations on last 
+character of first string, recursively compute minimum cost for all three operations and take minimum of three values.
 Insert: Recur for m and n-1
 Remove: Recur for m-1 and n
 Replace: Recur for m-1 and n-1
 
-We can see that many subproblems are solved again and again, for example eD(2,2) is called three times. Since same suproblems are called again, this problem has Overlapping Subprolems property. So Edit Distance problem has both properties (see this and this) of a dynamic programming problem. Like other typical Dynamic Programming(DP) problems, recomputations of same subproblems can be avoided by constructing a temporary array that stores results of subpriblems.
+We can see that many subproblems are solved again and again, for example eD(2,2) is called three times. Since same 
+subproblems are called again, this problem has Overlapping Subprolems property. So Edit Distance problem has both 
+properties (see this and this) of a dynamic programming problem. Like other typical Dynamic Programming(DP) problems, 
+recomputations of same subproblems can be avoided by constructing a temporary array that stores results of subpriblems.
 
 C++JavaPython
 // A Dynamic Programming based C++ program to find minimum

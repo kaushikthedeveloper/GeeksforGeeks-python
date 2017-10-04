@@ -1,17 +1,18 @@
 # http://www.geeksforgeeks.org/print-binary-tree-vertical-order/
-#Hash Map based
+# Hash Map based
 
 from collections import defaultdict
 
-#Basic Tree structure
+# Basic Tree structure
 class Node:
     def __init__(self, data: int):
         self.data = data
         self.left = None
         self.right = None
 
-#Derived Class
-#Distance from class -> Left child(--) and Right child(++)
+
+# Derived Class
+# Distance from class -> Left child(--) and Right child(++)
 class ModifiedNode(Node):
     def __init__(self, data: int):
         Node.__init__(self, data)
@@ -130,8 +131,10 @@ print-binary-tree-in-vertical-order
 
 Recommended: Please solve it on “PRACTICE” first, before moving on to the solution.
 
-The idea is to traverse the tree once and get the minimum and maximum horizontal distance with respect to root. For the tree shown above, minimum distance is -2 (for node with value 4) and maximum distance is 3 (For node with value 9).
-Once we have maximum and minimum distances from root, we iterate for each vertical line at distance minimum to maximum from root, and for each vertical line traverse the tree and print the nodes which lie on that vertical line.
+The idea is to traverse the tree once and get the minimum and maximum horizontal distance with respect to root. For the 
+tree shown above, minimum distance is -2 (for node with value 4) and maximum distance is 3 (For node with value 9).
+Once we have maximum and minimum distances from root, we iterate for each vertical line at distance minimum to maximum 
+from root, and for each vertical line traverse the tree and print the nodes which lie on that vertical line.
 
 Algorithm:
 
@@ -258,5 +261,7 @@ Vertical order traversal is
 3 8
 7
 9
-Time Complexity: Time complexity of above algorithm is O(w*n) where w is width of Binary Tree and n is number of nodes in Binary Tree. In worst case, the value of w can be O(n) (consider a complete tree for example) and time complexity can become O(n2).
+Time Complexity: Time complexity of above algorithm is O(w*n) where w is width of Binary Tree and n is number of nodes 
+in Binary Tree. In worst case, the value of w can be O(n) (consider a complete tree for example) and time complexity 
+can become O(n2).
 '''

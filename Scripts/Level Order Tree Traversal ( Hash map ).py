@@ -1,17 +1,19 @@
-#http://www.geeksforgeeks.org/level-order-tree-traversal/
-#Hash Map based
+# http://www.geeksforgeeks.org/level-order-tree-traversal/
+# Hash Map based
 
 from collections import defaultdict
 
-#Basic Tree structure
+
+# Basic Tree structure
 class Node:
     def __init__(self, data: int):
         self.data = data
         self.left = None
         self.right = None
 
-#Derived Class
-#Distance from class -> child(++)
+
+# Derived Class
+# Distance from class -> child(++)
 class ModifiedNode(Node):
     def __init__(self, data: int):
         Node.__init__(self, data)
@@ -21,6 +23,7 @@ class ModifiedNode(Node):
 
 # Used to store the [Node data] against its {dist_from_root value}
 dist_data = defaultdict(list)
+
 
 def vertical_traverse(head: Node):
     # Sort the Dictionary based on its key (distance_from_root)
@@ -51,8 +54,9 @@ def assign_dist(head: Node, distance: int):
     assign_dist(head.left, distance + 1)
     assign_dist(head.right, distance + 1)
 
-#main
-if __name__=="__main__":
+
+# main
+if __name__ == "__main__":
     """
         Constructing below tree
                 1
@@ -83,7 +87,6 @@ if __name__=="__main__":
     print("Level Order Traversal")
     [print(x) for x in vertical_nodes]
 
-
 """
 Input Explanation :
 Tree is hard-coded as
@@ -110,7 +113,9 @@ Level order traversal of a tree is breadth first traversal for the tree.
 METHOD 1 (Use function to print a given level)
 
 Algorithm:
-There are basically two functions in this method. One is to print all nodes at a given level (printGivenLevel), and other is to print level order traversal of the tree (printLevelorder). printLevelorder makes use of printGivenLevel to print nodes at all levels one by one starting from root.
+There are basically two functions in this method. One is to print all nodes at a given level (printGivenLevel), and 
+other is to print level order traversal of the tree (printLevelorder). printLevelorder makes use of printGivenLevel to 
+print nodes at all levels one by one starting from root.
 
 /*Function to print level order traversal of tree*/
 printLevelorder(tree)
@@ -219,7 +224,8 @@ Run on IDE
 Output:
 Level order traversal of binary tree is - 
 1 2 3 4 5 
-Time Complexity: O(n^2) in worst case. For a skewed tree, printGivenLevel() takes O(n) time where n is the number of nodes in the skewed tree. So time complexity of printLevelOrder() is O(n) + O(n-1) + O(n-2) + .. + O(1) which is O(n^2).
+Time Complexity: O(n^2) in worst case. For a skewed tree, printGivenLevel() takes O(n) time where n is the number of 
+nodes in the skewed tree. So time complexity of printLevelOrder() is O(n) + O(n-1) + O(n-2) + .. + O(1) which is O(n^2).
 
 
 
@@ -239,7 +245,9 @@ printLevelorder(tree)
     b) Enqueue temp_node’s children (first left then right children) to q
     c) Dequeue a node from q and assign it’s value to temp_node
 Implementation:
-Here is a simple implementation of the above algorithm. Queue is implemented using an array with maximum size of 500. We can implement queue as linked list also.
+Here is a simple implementation of the above algorithm. Queue is implemented using an array with maximum size of 500. 
+We can implement queue as linked list also.
+
 CC++JavaPython
 // Iterative Queue based C program to do level order traversal
 // of Binary Tree

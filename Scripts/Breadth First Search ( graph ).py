@@ -1,8 +1,8 @@
-#http://www.geeksforgeeks.org/breadth-first-traversal-for-a-graph/
+# http://www.geeksforgeeks.org/breadth-first-traversal-for-a-graph/
 
 from collections import defaultdict
 
-#Basic Tree structure
+# Basic Tree structure
 class Node:
     def __init__(self):
         # default dictionary to store graph
@@ -18,25 +18,25 @@ class Node:
 
         bfs_traverse = []
 
-        #keep track of nodes traversed already
+        # keep track of nodes traversed already
         is_visited = [False] * len(self.graph)
-        #Queue used for keeping track of next node to be travelled - start with Source
+        # Queue used for keeping track of next node to be travelled - start with Source
         queue = [source]
 
-        #mark source as visited (as its already added to queue_
+        # mark source as visited (as its already added to queue_
         is_visited[source] = True
 
-        while len(queue)>0:
+        while len(queue) > 0:
 
-            #pop (first) element of the queue
+            # pop (first) element of the queue
             curr_node = queue.pop(0)
             bfs_traverse.append(curr_node)
 
-            #add the neighbouring nodes that were still not visited
+            # add the neighbouring nodes that were still not visited
             for neighbour_node in self.graph[curr_node]:
-                if not is_visited[neighbour_node] :
+                if not is_visited[neighbour_node]:
                     queue.append(neighbour_node)
-                    #make visited True as they join queue
+                    # make visited True as they join queue
                     is_visited[neighbour_node] = True
 
         return bfs_traverse
@@ -45,8 +45,8 @@ class Node:
 def run_bfs(node: Node, source: int):
     return node.bfs(source)
 
-#main
-if __name__=="__main__":
+# main
+if __name__ == "__main__":
     """
         Constructing below graph
                    0
@@ -59,14 +59,14 @@ if __name__=="__main__":
     """
 
     node = Node()
-    node.add_edge(0,1)
-    node.add_edge(0,2)
-    node.add_edge(1,3)
-    node.add_edge(1,4)
-    node.add_edge(2,4)
-    node.add_edge(3,4)
-    node.add_edge(3,5)
-    node.add_edge(4,5)
+    node.add_edge(0, 1)
+    node.add_edge(0, 2)
+    node.add_edge(1, 3)
+    node.add_edge(1, 4)
+    node.add_edge(2, 4)
+    node.add_edge(3, 4)
+    node.add_edge(3, 5)
+    node.add_edge(4, 5)
 
     bfs_traverse = run_bfs(node, 0)
 
@@ -91,13 +91,19 @@ Breadth First Search traversal
 """
 
 '''
-Breadth First Traversal (or Search) for a graph is similar to Breadth First Traversal of a tree (See method 2 of this post). The only catch here is, unlike trees, graphs may contain cycles, so we may come to the same node again. To avoid processing a node more than once, we use a boolean visited array. For simplicity, it is assumed that all vertices are reachable from the starting vertex.
-For example, in the following graph, we start traversal from vertex 2. When we come to vertex 0, we look for all adjacent vertices of it. 2 is also an adjacent vertex of 0. If we don’t mark visited vertices, then 2 will be processed again and it will become a non-terminating process. A Breadth First Traversal of the following graph is 2, 0, 3, 1.
+Breadth First Traversal (or Search) for a graph is similar to Breadth First Traversal of a tree (See method 2 of this 
+post). The only catch here is, unlike trees, graphs may contain cycles, so we may come to the same node again. To avoid 
+processing a node more than once, we use a boolean visited array. For simplicity, it is assumed that all vertices are 
+reachable from the starting vertex.
+For example, in the following graph, we start traversal from vertex 2. When we come to vertex 0, we look for all 
+adjacent vertices of it. 2 is also an adjacent vertex of 0. If we don’t mark visited vertices, then 2 will be processed 
+again and it will become a non-terminating process. A Breadth First Traversal of the following graph is 2, 0, 3, 1.
 
 Recommended: Please solve it on “PRACTICE ” first, before moving on to the solution.
 Following are C++ and Java implementations of simple Breadth First Traversal from a given source.
 
-The C++ implementation uses adjacency list representation of graphs. STL‘s list container is used to store lists of adjacent nodes and queue of nodes needed for BFS traversal.
+The C++ implementation uses adjacency list representation of graphs. STL‘s list container is used to store lists of 
+adjacent nodes and queue of nodes needed for BFS traversal.
 
 C++JavaPython
 // Program to print BFS traversal from a given source vertex. BFS(int s) 
@@ -191,7 +197,9 @@ Run on IDE
 Output:
 Following is Breadth First Traversal (starting from vertex 2)
 2 0 3 1
-Note that the above code traverses only the vertices reachable from a given source vertex. All the vertices may not be reachable from a given vertex (example Disconnected graph). To print all the vertices, we can modify the BFS function to do traversal starting from all nodes one by one (Like the DFS modified version) .
+Note that the above code traverses only the vertices reachable from a given source vertex. All the vertices may not be 
+reachable from a given vertex (example Disconnected graph). To print all the vertices, we can modify the BFS function to
+ do traversal starting from all nodes one by one (Like the DFS modified version) .
 
 Time Complexity: O(V+E) where V is number of vertices in the graph and E is number of edges in the graph.
 '''

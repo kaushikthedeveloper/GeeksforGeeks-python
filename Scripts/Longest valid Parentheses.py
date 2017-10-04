@@ -1,33 +1,34 @@
-#http://www.geeksforgeeks.org/length-of-the-longest-valid-substring/
+# http://www.geeksforgeeks.org/length-of-the-longest-valid-substring/
 
 def longest_valid_parentheses(string: str):
-    #hold the substring start
+    # hold the substring start
     stack = [-1]
-    longest_parenth_count=0
-    for i,s in enumerate(string):
+    longest_parenth_count = 0
+    for i, s in enumerate(string):
 
-        #opening braces
-        if s=='(':
+        # opening braces
+        if s == '(':
             stack.append(i)
 
-        #closing braces
-        elif s==')':
-            #pair made
+        # closing braces
+        elif s == ')':
+            # pair made
             stack.pop()
 
-            #stack contains '('
-            if len(stack)!=0:
-                #check if current substring is longest
-                longest_parenth_count = max( longest_parenth_count, i-stack[len(stack)-1] )
+            # stack contains '('
+            if len(stack) != 0:
+                # check if current substring is longest
+                longest_parenth_count = max(longest_parenth_count, i - stack[len(stack) - 1])
 
-            #empty stack, push current pos
+            # empty stack, push current pos
             else:
                 stack.append(i)
 
     return longest_parenth_count
 
-#main
-if __name__=="__main__":
+
+# main
+if __name__ == "__main__":
     string = input()
     longest_parentheses = longest_valid_parentheses(string)
 
@@ -64,7 +65,9 @@ Input:  ()(()))))
 Output: 6
 Explanation:  ()(())
 
-An Efficient Solution can solve this problem in O(n) time. The idea is to store indexes of previous starting brackets in a stack. The first element of stack is a special element that provides index before beginning of valid substring (base for next valid string).
+An Efficient Solution can solve this problem in O(n) time. The idea is to store indexes of previous starting brackets 
+in a stack. The first element of stack is a special element that provides index before beginning of valid substring 
+(base for next valid string).
 
 
 1) Create an empty stack and push -1 to it. The first element
@@ -86,6 +89,7 @@ An Efficient Solution can solve this problem in O(n) time. The idea is to store 
 
 3) Return result.
 Below are C++ and Python implementations of above algorithm.
+
 C++JavaPython
 // C++ program to find length of the longest valid
 // substring

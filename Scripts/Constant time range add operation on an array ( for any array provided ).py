@@ -1,38 +1,37 @@
-#http://www.geeksforgeeks.org/constant-time-range-add-operation-array/
+# http://www.geeksforgeeks.org/constant-time-range-add-operation-array/
 # modified to work with any array and sum to be added
 
 def range_add_op(array: list, ranges: list, addition: int):
+    # work on the algorithm as we would for the array of 0s of len(array)
+    arr_for_0 = [0 for i in range(len(array) + 1)]
 
-    #work on the algorithm as we would for the array of 0s of len(array)
-    arr_for_0 = [0 for i in range(len(array)+1)]
-
-    #work with the ranges (add at start and subtract at end+1)
-    for start,end in ranges:
+    # work with the ranges (add at start and subtract at end+1)
+    for start, end in ranges:
         arr_for_0[start] = arr_for_0[start] + addition
-        arr_for_0[end+1] = arr_for_0[end+1] - addition
+        arr_for_0[end + 1] = arr_for_0[end + 1] - addition
 
     previous_ele = 0
 
-    #go through the list and calculate the sum that will come for each index
-    for i,curr_ele in enumerate(arr_for_0[:len(array)]):
+    # go through the list and calculate the sum that will come for each index
+    for i, curr_ele in enumerate(arr_for_0[:len(array)]):
         previous_ele = previous_ele + curr_ele
 
-        #add the sum we got from array_of_0s to the original array
+        # add the sum we got from array_of_0s to the original array
         array[i] += previous_ele
 
     return array
 
-#main
-if __name__=="__main__":
-    array = list(map(int,input().split()))                  #List of int
-    addition = int(input())                                 #Sum to be added if the element comes within the range
-    no_of_additions = int(input())                          #number of ranges that will be provided
-    ranges = []                                             #ranges provided
+# main
+if __name__ == "__main__":
+    array = list(map(int, input().split()))  # List of int
+    addition = int(input())  # Sum to be added if the element comes within the range
+    no_of_additions = int(input())  # number of ranges that will be provided
+    ranges = []  # ranges provided
 
-    #ranges given from index 0
+    # ranges given from index 0
     for i in range(no_of_additions):
-        #get range from user
-        ranges.append( list(map(int,input().split())) )
+        # get range from user
+        ranges.append(list(map(int, input().split())))
 
     final_array = range_add_op(array, ranges, addition)
 
@@ -61,7 +60,8 @@ Final list after additions
 """
 
 '''
-Given an array of size N which is initialized with all zeros. We are given many range add queries, which should be applied to this array. We need to print final updated array as our result.
+Given an array of size N which is initialized with all zeros. We are given many range add queries, which should be 
+applied to this array. We need to print final updated array as our result.
 Examples:
 
 N = 6
@@ -75,7 +75,10 @@ Arr = [100, 200, 300, 200, 100, 100]
 Which is the final updated array.
 Recommended: Please try your approach on {IDE} first, before moving on to the solution.
 
-This problem can be solved using segment tree with lazy updates in O(log N) time per query but we can do better here, as update operation is not given. We can process each query in constant time using this logic, when a query to add V is given in range [a, b] we will add V to arr[a] and –V to arr[b+1] now if we want to get the actual values of array we will convert the above array into prefix sum array. See below example to understand,
+This problem can be solved using segment tree with lazy updates in O(log N) time per query but we can do better here, 
+as update operation is not given. We can process each query in constant time using this logic, when a query to add V is 
+given in range [a, b] we will add V to arr[a] and –V to arr[b+1] now if we want to get the actual values of array we 
+will convert the above array into prefix sum array. See below example to understand,
 
 Arr = [0, 0, 0, 0, 0, 0]
 rangeUpdate1 [0, 2], add 100
@@ -87,8 +90,11 @@ Arr = [100, 100, 100, -100, -100, 0, -100]
 Now we will convert above operation array to prefix sum array as shown below,
 Arr = [100, 200, 300, 200, 100, 100]
 Which is the final updated array.
-So in effect, when we add a value V to specific index of array, It represents adding V to all elements right to this index, that is why we add –V after range to remove its effect after its range of add query.
-Please note in below code, if range spans till the last index, the addition of –V is omitted to be in memory limit of the array.
+So in effect, when we add a value V to specific index of array, It represents adding V to all elements right to this 
+index, that is why we add –V after range to remove its effect after its range of add query.
+Please note in below code, if range spans till the last index, the addition of –V is omitted to be in memory limit of 
+the array.
+
 C++Java
 //  C++ program to get updated array after many array range
 // add operation
