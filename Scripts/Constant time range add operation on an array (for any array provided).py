@@ -17,7 +17,7 @@ def range_add_op(array: list, ranges: list, addition: int):
     for i,curr_ele in enumerate(arr_for_0[:len(array)]):
         previous_ele = previous_ele + curr_ele
 
-        #add the sum we got array of 0s to the original array
+        #add the sum we got from array_of_0s to the original array
         array[i] += previous_ele
 
     return array
