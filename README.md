@@ -1,6 +1,9 @@
 # GeeksforGeeks Python
 Following project contains [Python3](https://docs.python.org/3/) implementation of the Algorithms and Questions found in GeeksforGeeks.
 
+> “Talk is cheap. Show me the code.” 
+> ― Linus Torvalds
+
 ### Format of the Programs :
 ```
 1. # <link reffering to the respective GeeksforGeeks page>
@@ -20,8 +23,13 @@ Following project contains [Python3](https://docs.python.org/3/) implementation 
    : Input Explanation 
    : Input <Example>
    : Output <Example>
-10. Documentation for the GeeksforGeeks page content
+10. Documentation of the GeeksforGeeks page content
 ```
+
+For better code understanding, please follow the [Style guide for python](https://www.python.org/dev/peps/pep-0008/) recommendations as per the Python docs. Also, do not forget to leave ample number of comments!!
+
+> “Good code is its own best documentation. As you’re about to add a comment, ask yourself, ‘How can I improve the code so that this comment isn’t needed?'”
+> – Steve McConnell 
 
 **Imp :** In the code, provide [Function Annotations](https://www.python.org/dev/peps/pep-3107/) as per [PEP 3107 -- Function Annotations](https://www.python.org/dev/peps/pep-3107/) **for every parameter passed in a function**. Return type specification is optional.
 
@@ -49,7 +57,6 @@ def sum() -> int:
     ...
     
 ```
-
 
 ##### **Note** : this is not affiliated with GeeksforGeeks in any way other than for reference purpose.
 
