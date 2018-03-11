@@ -54,7 +54,7 @@ def foo(l: list, s: str = 'xyz'):
 Annotations for the type of a function's return value take the form of optional expressions that is done like so:
 
 ```python
-def sum() -> expression:
+def foo() -> expression:
     ...
     
 #Ex :
